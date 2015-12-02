@@ -1,4 +1,4 @@
 module.exports = {
-    db: 'mongodb://username:password@ds031903.mongolab.com:31903/example',
-    sessionSecret: 'productionSecret'
+    db: 'mongodb://das_big_ups:8LBUqTikyJqN@ds057934.mongolab.com:57934/big_ups',
+    sessionSecret: 'Priest Driven Ambulance'
 };
