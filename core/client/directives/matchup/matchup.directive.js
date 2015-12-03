@@ -6,8 +6,6 @@ app.directive('matchup', function () {
 
         templateUrl: 'directives/matchup/matchup.template.html',
 
-        controller: function ($scope) {
-            $scope.blah = "sadfklasdf";
-        }
+        scope: '=matchup'
     };
 });

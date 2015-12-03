@@ -1,0 +1,16 @@
+div.clear {
+  clear: both;
+}
+matchup {
+  display: block;
+}
+
+matchup div {
+  display: inline-block;
+}
+div.away {
+  float: left;
+}
+div.home {
+  float: right;
+}

@@ -4,9 +4,11 @@
 
 Get all matchUps: <button ng-click="getMatchups()">go!</button>
 
-<ul>
+<!-- <ul>
     <li ng-repeat="matchUp in matchUps">Home: {{ matchUp.home }}, Away {{ matchUp.away }}, date: {{matchUp.date}} (id: {{ matchUp._id }})</li>
-</ul>
+</ul> -->
+
+<matchup ng-repeat="matchUp in matchUps" matchup={{matchUp}}></matchup>
 
 <br>
 <br>
@@ -23,6 +25,3 @@ Home team: <input ng-model="home" type="text">
 Away team: <input ng-model="away" type="text">
 Date: <input ng-model="date" type="text">
 <button ng-click="postNewMatchup()">add!</button> {{ flash }}
-
-
-<matchup></matchup>

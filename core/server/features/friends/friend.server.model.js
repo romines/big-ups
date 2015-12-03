@@ -11,6 +11,9 @@ var MatchupSchema = new Schema({
   },
   date: {
     type: String
+  },
+  imgUrl: {
+    type: String
   }
 });
 
