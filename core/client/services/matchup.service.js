@@ -6,7 +6,7 @@ app.service('friendService', ['$q', '$http', friendService]);
 
 function friendService($q, $http) {
 
-    this.getFriends = function () {
+    this.getMatchups = function () {
 
         return $http.get('/api/friends')
             .then(function (response) {
@@ -15,7 +15,7 @@ function friendService($q, $http) {
     };
 
 
-    this.getFriendById = function (id) {
+    this.getMatchupById = function (id) {
 
         return $http.get('/api/friends/' + id)
             .then(function (response) {
@@ -30,7 +30,7 @@ function friendService($q, $http) {
     };
 
 
-    this.postNewFriend = function (friend) {
+    this.postNewMatchup = function (friend) {
 
         return $http.post('/api/friends', friend)
             .then(function (response) {

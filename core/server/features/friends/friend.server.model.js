@@ -1,15 +1,18 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+  Schema = mongoose.Schema;
 
 
-var FriendSchema = new Schema({
-    name: {
-        type: String
-    },
-    age: {
-        type: Number
-    }
+var MatchupSchema = new Schema({
+  home: {
+    type: String
+  },
+  away: {
+    type: String
+  },
+  date: {
+    type: String
+  }
 });
 
 
-module.exports = mongoose.model('Friend', FriendSchema);
+module.exports = mongoose.model('Matchup', MatchupSchema);

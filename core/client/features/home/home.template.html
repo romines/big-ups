@@ -1,24 +1,25 @@
 <menu></menu>
 
-<h3>Find friends</h3>
+<h3>All Matchups</h3>
 
-Get all friends: <button ng-click="getFriends()">go!</button>
+Get all friends: <button ng-click="getMatchups()">go!</button>
 
 <ul>
-    <li ng-repeat="friend in friends">{{ friend.name }}, age {{ friend.age }} (id: {{ friend._id }})</li>
+    <li ng-repeat="matchUp in matchUps">Home: {{ matchUp.home }}, Away {{ matchUp.away }}, date: {{matchUp.date}} (id: {{ friend._id }})</li>
 </ul>
 
 <br>
 <br>
 
-Get one friend: <input placeholder="enter an id" type="text" ng-model="id"> <button ng-click="getFriendById(id)">get friend!</button>
+<!-- Get one friend: <input placeholder="enter an id" type="text" ng-model="id"> <button ng-click="getMatchupById(id)">get friend!</button>
 
 <ul>
     <li>{{ friend.name || friend }}</li>
-</ul>
+</ul> -->
 
 
 <h3>Add a new friend</h3>
-Name: <input ng-model="name" type="text">
-Age: <input ng-model="age" type="text">
-<button ng-click="postNewFriend()">add!</button> {{ flash }}
+Home team: <input ng-model="home" type="text">
+Away team: <input ng-model="away" type="text">
+Date: <input ng-model="date" type="text">
+<button ng-click="postNewMatchup()">add!</button> {{ flash }}

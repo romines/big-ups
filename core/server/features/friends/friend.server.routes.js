@@ -3,11 +3,11 @@ var Ctrl = require('./friend.server.controller');
 module.exports = function (app) {
 
     app.route('/api/friends')
-        .post(Ctrl.postFriend)
-        .get(Ctrl.getFriends);
+        .post(Ctrl.postMatchup)
+        .get(Ctrl.getMatchups);
 
     app.route('/api/friends/:id')
-        .get(Ctrl.getOneFriend)
-        .put(Ctrl.putFriend)
-        .delete(Ctrl.deleteFriend);
+        .get(Ctrl.getOneMatchup)
+        .put(Ctrl.putMatchup)
+        .delete(Ctrl.deleteMatchup);
 };

@@ -5,50 +5,43 @@ app.controller('homeController', ['$scope', 'friendService', homeController]);
 
 
 function homeController($scope, friendService) {
+  friendService.getMatchups()
+    .then(function(data) {
 
-    $scope.getFriends = function () {
+      $scope.matchUps = data;
+    });
+  // $scope.getMatchups = function () {
+  //
+  //
+  // };
 
-        friendService.getFriends()
-            .then(function (data) {
 
-                $scope.friends = data;
-            });
+  $scope.getMatchupById = function(id) {
+
+    friendService.getMatchupById(id)
+      .then(function(data) {
+
+        $scope.friend = data;
+      });
+  };
+
+
+  $scope.postNewMatchup = function() {
+
+    var newMatchup = {
+      home: $scope.home,
+      away: $scope.away,
+      date: $scope.date
     };
+    friendService.postNewMatchup(newMatchup)
+      .then(function(data) {
+
+        $scope.flash = data;
+      });
+    $scope.home = "";
+    $scope.away = "";
+    $scope.date = "";
 
 
-    $scope.getFriendById = function (id) {
-
-        friendService.getFriendById(id)
-            .then(function (data) {
-
-                $scope.friend = data;
-            });
-    };
-
-
-    $scope.postNewFriend = function () {
-
-        if (!$scope.name) {
-            $scope.flash = "Please enter a name!";
-        }
-
-        else if (!$scope.age || /[^0-9]/.test($scope.age)) {
-            $scope.flash = "Please enter an age (needs to be a number, dummy!)";
-        }
-
-        else {
-            var newFriend = {
-                name: $scope.name,
-                age: $scope.age
-            };
-            friendService.postNewFriend(newFriend)
-                .then(function (data) {
-
-                    $scope.flash = data;
-                });
-            $scope.name = "";
-            $scope.age = "";
-        }
-
-    };
+  };
 }
