@@ -2,10 +2,10 @@
 
 <h3>All Matchups</h3>
 
-Get all friends: <button ng-click="getMatchups()">go!</button>
+Get all matchUps: <button ng-click="getMatchups()">go!</button>
 
 <ul>
-    <li ng-repeat="matchUp in matchUps">Home: {{ matchUp.home }}, Away {{ matchUp.away }}, date: {{matchUp.date}} (id: {{ friend._id }})</li>
+    <li ng-repeat="matchUp in matchUps">Home: {{ matchUp.home }}, Away {{ matchUp.away }}, date: {{matchUp.date}} (id: {{ matchUp._id }})</li>
 </ul>
 
 <br>
@@ -18,8 +18,11 @@ Get all friends: <button ng-click="getMatchups()">go!</button>
 </ul> -->
 
 
-<h3>Add a new friend</h3>
+<h3>Add a matchup</h3>
 Home team: <input ng-model="home" type="text">
 Away team: <input ng-model="away" type="text">
 Date: <input ng-model="date" type="text">
 <button ng-click="postNewMatchup()">add!</button> {{ flash }}
+
+
+<matchup></matchup>

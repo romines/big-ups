@@ -1,24 +1,31 @@
 var app = angular.module('app');
 
 
-app.controller('homeController', ['$scope', 'friendService', homeController]);
+app.controller('homeController', ['$scope', 'matchupService', homeController]);
 
 
-function homeController($scope, friendService) {
-  friendService.getMatchups()
-    .then(function(data) {
+function homeController($scope, matchupService) {
 
-      $scope.matchUps = data;
-    });
-  // $scope.getMatchups = function () {
-  //
-  //
-  // };
+  getMatchups();
+
+  function getMatchups() {
+    matchupService.getMatchups()
+      .then(function(data) {
+
+        $scope.matchUps = data;
+      });
+  }
+
+  $scope.getMatchups = function () {
+
+    getMatchups();
+
+  };
 
 
   $scope.getMatchupById = function(id) {
 
-    friendService.getMatchupById(id)
+    matchupService.getMatchupById(id)
       .then(function(data) {
 
         $scope.friend = data;
@@ -33,10 +40,10 @@ function homeController($scope, friendService) {
       away: $scope.away,
       date: $scope.date
     };
-    friendService.postNewMatchup(newMatchup)
-      .then(function(data) {
+    matchupService.postNewMatchup(newMatchup)
+      .then(function() {
 
-        $scope.flash = data;
+        $scope.getMatchups();
       });
     $scope.home = "";
     $scope.away = "";
