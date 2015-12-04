@@ -1,11 +1,36 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+html, body {
+	line-height: 1;
+  width: 100%;
+}
+
 div.clear {
   clear: both;
 }
+
+div.slate {
+  width: 84%;
+  margin: 0 auto;
+  padding: 1%;
+  background-color: rgba(54, 54, 85, 0.77);
+}
 matchup {
+  margin: 1% auto;
+  padding: 1%;
   display: block;
+  width: 94%;
+  background-color: rgb(238, 238, 238);
 }
 
-matchup div {
+matchup div.team {
   display: inline-block;
 }
 div.away {

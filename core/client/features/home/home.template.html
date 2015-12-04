@@ -7,8 +7,9 @@ Get all matchUps: <button ng-click="getMatchups()">go!</button>
 <!-- <ul>
     <li ng-repeat="matchUp in matchUps">Home: {{ matchUp.home }}, Away {{ matchUp.away }}, date: {{matchUp.date}} (id: {{ matchUp._id }})</li>
 </ul> -->
-
-<matchup ng-repeat="matchUp in matchUps" matchup="matchUp"></matchup>
+<div class="slate">
+  <matchup ng-repeat="matchUp in matchUps" matchup="matchUp"></matchup>
+</div>
 
 <br>
 <br>
