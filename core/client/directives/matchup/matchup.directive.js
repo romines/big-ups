@@ -6,6 +6,6 @@ app.directive('matchup', function () {
 
         templateUrl: 'directives/matchup/matchup.template.html',
 
-        scope: '=matchup'
+        scope: '='
     };
 });
