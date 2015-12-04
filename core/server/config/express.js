@@ -48,6 +48,7 @@ module.exports = function () {
 
     // HERE WE CONFIGURE THE ROUTES
     require('../features/friends/friend.server.routes')(app);
+    require('../features/teams/team.server.routes')(app);
 
 
     // THIS WILL BE THE ROOT OF THE ANGULAR APP
