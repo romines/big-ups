@@ -10,15 +10,20 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre {
 html, body {
 	line-height: 1;
   width: 100%;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 div.clear {
   clear: both;
 }
 
+div.main {
+  margin: 1%;
+}
+
 div.slate {
   width: 84%;
-  margin: 0 auto;
+  margin: 1% auto;
   padding: 1%;
   background-color: rgba(54, 54, 85, 0.77);
 }

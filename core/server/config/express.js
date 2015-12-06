@@ -47,7 +47,7 @@ module.exports = function () {
 
 
     // HERE WE CONFIGURE THE ROUTES
-    require('../features/friends/friend.server.routes')(app);
+    require('../features/matchups/matchup.server.routes')(app);
     require('../features/teams/team.server.routes')(app);
 
 
