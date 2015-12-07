@@ -1,5 +1,5 @@
 {
-  "name": "mean-stack-app-saturday",
+  "name": "bigUps",
   "version": "0.0.1",
   "description": "mean stack app",
   "main": "server.js",
@@ -15,7 +15,14 @@
     "request": "^2.67.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "autoprefixer": "^6.1.2",
+    "bower": "^1.7.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.0.5",
+    "gulp-plumber": "^1.0.1",
+    "gulp-util": "^3.0.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,9 +30,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ladrillo/mean-stack-app-saturday.git"
+    "url": "git+https://github.com/romines/big-ups.git"
   },
-  "author": "Gabriel",
+  "author": "Adam Romines",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ladrillo/mean-stack-app-saturday/issues"

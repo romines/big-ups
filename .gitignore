@@ -1,3 +1,4 @@
 /node_modules
 .DS_Store
 /core/client/shared/images
+/bower_components

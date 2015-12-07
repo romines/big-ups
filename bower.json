@@ -1,0 +1,19 @@
+{
+  "name": "bigUps",
+  "description": "mean stack app",
+  "main": "server.js",
+  "authors": [
+    "Adam Romines"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/romines/big-ups",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

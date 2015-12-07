@@ -2,60 +2,62 @@
 
 // node libraries and configuration file
 var express = require('express'),
-    cors = require('cors'),
-    bodyParser = require('body-parser'),
-    methodOverride = require('method-override'),
-    session = require('express-session'),
-    morgan = require('morgan'),
-    config = require('./config');
+  cors = require('cors'),
+  bodyParser = require('body-parser'),
+  methodOverride = require('method-override'),
+  session = require('express-session'),
+  morgan = require('morgan'),
+  config = require('./config');
 
 
-module.exports = function () {
+module.exports = function() {
 
-    var app = express();
-
-
-    // MIDDLEWARE NEEDED BOTH FOR DEV AND PRODUCTION
-
-    // fixes cross-origin issues
-    app.use(cors());
-
-    // creates and populates the req.body object
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded(
-        {
-            extended: true
-        }));
-
-    // makes sure we can use PUT and PATCH
-    app.use(methodOverride());
-
-    // cookies and session
-    app.use(session({
-        saveUninitialized: true,
-        resave: true,
-        secret: config.sessionSecret
-    }));
+  var app = express();
 
 
-    // MIDDLEWARE THAT RUNS ONLY IN DEVELOPMENT
+  // MIDDLEWARE NEEDED BOTH FOR DEV AND PRODUCTION
 
-    // a logger so we can see activity in the console
-    if (process.env.NODE_ENV === 'development') {
-        app.use(morgan('dev'));
-    }
+  // fixes cross-origin issues
+  app.use(cors());
+
+  // creates and populates the req.body object
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+
+  // makes sure we can use PUT and PATCH
+  app.use(methodOverride());
+
+  // cookies and session
+  app.use(session({
+    saveUninitialized: true,
+    resave: true,
+    secret: config.sessionSecret
+  }));
 
 
-    // HERE WE CONFIGURE THE ROUTES
-    require('../features/matchups/matchup.server.routes')(app);
-    require('../features/teams/team.server.routes')(app);
-    require('../features/admin/admin.server.routes')(app);
+  // MIDDLEWARE THAT RUNS ONLY IN DEVELOPMENT
+
+  // a logger so we can see activity in the console
+  if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+  }
 
 
-    // THIS WILL BE THE ROOT OF THE ANGULAR APP
-    // the route is relative to the root of the project
-    app.use(express.static('./core/client'));
+  // HERE WE CONFIGURE THE ROUTES
+  require('../features/matchups/matchup.server.routes')(app);
+  require('../features/teams/team.server.routes')(app);
+  require('../features/admin/admin.server.routes')(app);
 
 
-    return app;
+  // THIS WILL BE THE ROOT OF THE ANGULAR APP
+  // the route is relative to the root of the project
+  // app.use(express.static('./core/client'));
+  app.use(express.static('./core/client'));
+  app.use('/bower_components', express.static('./bower_components'));
+
+
+
+  return app;
 };
