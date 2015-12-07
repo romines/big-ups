@@ -4,7 +4,7 @@ app.service('cfbService', ['$q', '$http', cfbService]);
 
 function cfbService($q, $http) {
   this.test = function () {
-    return $http.get('/api/cfb')
+    return $http.get('/api/data')
       .then(function (response) {
         return response.data;
       })
