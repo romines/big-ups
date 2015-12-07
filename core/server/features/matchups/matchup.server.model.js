@@ -14,9 +14,10 @@ var MatchupSchema = new Schema({
   date: {
     type: Date
   },
-  imgUrl: {
-    type: String
-  }
+  burScore: {
+    type: Number
+  },
+  tags: [String]
 });
 
 
