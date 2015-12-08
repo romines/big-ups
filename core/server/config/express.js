@@ -53,7 +53,6 @@ module.exports = function() {
 
   // THIS WILL BE THE ROOT OF THE ANGULAR APP
   // the route is relative to the root of the project
-  // app.use(express.static('./core/client'));
   app.use(express.static('./core/client'));
   app.use('/bower_components', express.static('./bower_components'));
 

@@ -1,29 +1,32 @@
-// var app = angular.module('app');
-//
-// app.controller('adminController', ['$scope', 'cfbService', adminController]);
-//
-// function adminController($scope, cfbService) {
-//   $scope.test = 'test from adminController';
-// }
-angular.module('app').controller('adminController', function ($scope) {
-  $scope.singleModel = 1;
+angular.module('app').controller('adminController', ['$scope', 'dataService', adminController]);
 
-  $scope.radioModel = 'Middle';
+function adminController($scope, dataService) {
+  $scope.responseData = '';
+  $scope.blast = function () {
+    // $scope.responseData = 'asdflkjasd';
+    dataService.getData()
+      .then(function (response) {
+        $scope.teams = fpiCleanup(response);
+      })
+  }
 
-  $scope.checkModel = {
-    left: false,
-    middle: true,
-    right: false
-  };
-
-  $scope.checkResults = [];
-
-  $scope.$watchCollection('checkModel', function () {
-    $scope.checkResults = [];
-    angular.forEach($scope.checkModel, function (value, key) {
-      if (value) {
-        $scope.checkResults.push(key);
-      }
-    });
-  });
-});
+  function fpiCleanup(response) {
+    // console.log(response);
+    var teams = response.data.results.rankings;
+    teams.shift();
+    var clean = [];
+    for (var i=0; i<teams.length; i++) {
+      // console.log(teams[i]);
+      clean.push({
+        name: teams[i].team.text,
+        rank: teams[i].rank,
+        wins: teams[i].wins,
+        losses: teams[i].losses,
+        fpi: teams[i].fpi,
+      });
+    }
+    return clean.filter(function (team) {
+      return team.name;
+    });;
+  }
+}
