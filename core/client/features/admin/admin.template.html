@@ -1,19 +1,27 @@
 <menu></menu>
 <div>
-    <h4>Get some data</h4>
-    <button type="button" class="btn btn-primary" ng-click="blast()">
-        Get from Kimono
-    </button><br><br>
-    <table class="table">
-      <th>Team</th>
-      <th>Rank</th>
-      <th>W</th>
-      <th>L</th>
-      <th>FPI</th>
-      <tr ng-repeat="team in teams">
-        <td ng-repeat="(key, value) in team">{{value}}</td>
-      </tr>
-    </table>
+  <h4><a></a></h4>
+  <div class="btn-group">
+    <label class="btn btn-primary" ng-model="league" ng-value="cfb" uib-btn-radio="'cfb'">CFB</label>
+    <label class="btn btn-primary" ng-model="league" ng-value="nba" uib-btn-radio="'nba'">NBA</label>
+    <label class="btn btn-primary" ng-model="league" ng-value="nfl" uib-btn-radio="'nfl'">NFL</label>
+  </div>
+  <div class="btn-group">
+    <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'pr'">Rankings</label>
+    <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'sched'">Schedule</label>
+  </div>
+  <span>&nbsp;request : {{kReq}}</span><br><br>
+  <button type="button" class="btn btn-primary" ng-click="getKimoData(league, kReq)">
+    Get from Kimono
+  </button>
+  <br>
+  <br>
+  <table class="table">
+    <th ng-repeat="header in tHeaders">{{header}}</th>
+    <tr ng-repeat="team in teams">
+      <td ng-repeat="(key, value) in team">{{value}}</td>
+    </tr>
+  </table>
 
 
 </div>

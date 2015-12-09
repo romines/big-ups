@@ -1,10 +1,11 @@
 var kimonode = require('../../services/kimono-services');
 
 exports.dataMethods = function(req, res, next) {
-  var league = req.param('league');
-  var action = req.param('action');
-  kimonode.getData(function (data) {
-    // var count = data.count;
+  var league = req.query.league;
+  var kReq = req.query.kimo;
+  // console.log(league, kReq)
+  kimonode.getKimoData(function (data) {
+
     res.status(200).send(data);
-  });
+  }, league, kReq);
 }

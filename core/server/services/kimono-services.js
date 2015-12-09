@@ -1,9 +1,12 @@
 "use strict";
 const
-  request = require('request');
+  request = require('request'),
+  konfig = require('./kimono-config.js');
 
-exports.getData = function (callback) {
-  request("https://www.kimonolabs.com/api/cb7yt6n8?apikey=Vj1A7atUmZq8lM7vE0pBvqE4Dnw40G9R",
+
+exports.getKimoData = function (callback, league, kReq) {
+  console.log(league, kReq);
+  request(konfig.baseUrl + konfig.kID[league][kReq] + konfig.apiKey,
   function(err, response, body) {
     if (err) console.log(err);
     callback(body);
