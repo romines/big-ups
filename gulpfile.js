@@ -1,11 +1,18 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var bowerMain = require('bower-main');
 var path = require('path');
 var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var concat = require('gulp-concat');
-var shared = './core/client/shared/'
+var shared = './core/client/shared/';
+var print = require('gulp-print');
+
+gulp.task('lib-scripts',function () {
+  return gulp.src(bowerMain('js','min.js').normal)
+    .pipe(gulp.dest(shared + 'scripts'));
+});
 
 gulp.task('build-css', function() {
   return gulp.src(shared + 'style/less/styles.less')

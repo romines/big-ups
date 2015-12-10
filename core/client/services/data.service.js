@@ -7,6 +7,11 @@ function dataService($q, $http) {
     return $http.get('/api/data?league=' + league + '&kimo=' + kReq )
       .then(function (response) {
         return response;
-      })
+      });
   }
+  this.rankingsToMongo = function (rankings) {
+    
+
+  }
+
 }

@@ -1,4 +1,4 @@
-var kimonode = require('../../services/kimono-services');
+var kimonode = require('../../services/kimono-service');
 
 exports.dataMethods = function(req, res, next) {
   var league = req.query.league;

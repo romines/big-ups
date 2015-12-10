@@ -33,9 +33,9 @@ function adminController($scope, dataService) {
             losses : teams[i].losses
           }
           if (kAPI === 'cfb_pr') teamRank.fpi = teams[i].fpi;
-
           clean.push(teamRank);
         }
+        console.log(clean);
         return clean.filter(function (team) {
           // filter out empty rows
           return team.name;
@@ -51,7 +51,7 @@ function adminController($scope, dataService) {
         }
 
         for (var i=0; i<games.length; i++) {
-          var dateStr = (games[i].url.length > 42) ? getDate(games[i].url) : new Date();
+          var dateStr = (games[i].url.length > 42) ? getDate(games[i].url) : moment().format('YYYY-MM-DD');
           clean.push({
             away : games[i].away,
             home : games[i].home,

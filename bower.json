@@ -15,5 +15,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "moment": "~2.10.6",
+    "moment-timezone": "~0.4.1",
+    "angular-bootstrap": "~0.14.3"
+  }
 }

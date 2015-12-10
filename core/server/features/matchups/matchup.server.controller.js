@@ -25,11 +25,11 @@ exports.getOneMatchup = function(req, res, next) {
 
 exports.postMatchup = function(req, res, next) {
 
-  var friend = new Matchup(req.body);
-  friend.save(function(err) {
+  var matchup = new Matchup(req.body);
+  matchup.save(function(err) {
 
     if (err) res.send(err);
-    else res.json(friend);
+    else res.json(matchup);
   });
 };
 
