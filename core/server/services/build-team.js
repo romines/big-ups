@@ -1,4 +1,5 @@
 var build = function(rankings) {
+
   var results = [];
   for (var i = 0; i < rankings.length; i++) {
     var rank = rankings[i];
@@ -16,7 +17,7 @@ var build = function(rankings) {
     }
     results.push(team);
   }
-
+  
   return results;
 
 }

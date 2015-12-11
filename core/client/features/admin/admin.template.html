@@ -10,9 +10,12 @@
     <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'pr'">Rankings</label>
     <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'sched'">Schedule</label>
   </div>
-  <span>&nbsp;request : {{kReq}}</span><br><br>
+  <span>&nbsp;response : {{kReq}}</span><br><br>
   <button type="button" class="btn btn-primary" ng-click="getKimoData(league, kReq)">
     Get from Kimono
+  </button>
+  <button type="button" class="btn btn-default" ng-click="rankingsToMongo(league)">
+    Post League Teams
   </button>
   <br>
   <br>

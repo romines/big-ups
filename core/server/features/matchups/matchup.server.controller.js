@@ -1,6 +1,7 @@
 "use strict";
 var Matchup = require('./matchup.server.model');
 var request = require('request');
+var async = require('async');
 
 
 exports.getMatchups = function(req, res, next) {
@@ -23,7 +24,7 @@ exports.getOneMatchup = function(req, res, next) {
 };
 
 
-exports.postMatchup = function(req, res, next) {
+exports.postMatchups = function(req, res, next) {
 
   var matchup = new Matchup(req.body);
   matchup.save(function(err) {
@@ -33,6 +34,21 @@ exports.postMatchup = function(req, res, next) {
   });
 };
 
+var saveMatchups = function (matchups) {
+  async.each(matchups, function (game, callback) {
+    var matchup = new Matchup(game);
+
+    matchup.save(function (err) {
+      if (err) console.log(err);
+    });
+    callback();
+  }, function (error) {
+    if (error) console.log(error);
+    console.log(matchups.length, ' matchups saved');
+  });
+}
+
+exports.saveMatchups = saveMatchups;
 
 exports.putMatchup = function(req, res, next) {
 

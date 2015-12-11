@@ -6,13 +6,9 @@ function adminController($scope, dataService) {
 
     dataService.getKimoData(league, kReq)
       .then(function (response) {
-        // var resParams = response.data.name.split('_');
-        // console.log('lg is: ', resParams[0], ' and kAPI is: ', resParams[1]);
-
-        // $scope.teams = response;
-        $scope.teams = handleResponse[kReq](response);
+        console.log(response.data);
+        $scope.teams = response.data;
         $scope.tHeaders = Object.keys($scope.teams[0]);
-        // console.log($scope.tHeaders.keys());
       });
   }
 

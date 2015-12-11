@@ -9,9 +9,11 @@ function dataService($q, $http) {
         return response;
       });
   }
-  this.rankingsToMongo = function (rankings) {
-    
-
+  this.rankingsToMongo = function () {
+    return $http.get('/api/data?task=teams-from-pr')
+      .then(function (response) {
+        return response;
+      })
   }
 
 }

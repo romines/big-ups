@@ -3,7 +3,7 @@ var Ctrl = require('./matchup.server.controller');
 module.exports = function (app) {
 
     app.route('/api/matchups')
-        .post(Ctrl.postMatchup)
+        .post(Ctrl.postMatchups)
         .get(Ctrl.getMatchups);
 
     app.route('/api/matchups/:id')

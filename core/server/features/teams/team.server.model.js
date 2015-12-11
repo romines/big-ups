@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
 
-  TeamSchema = new Team({
+  TeamSchema = new Schema({
     name     : String,
     nickname : String,
     league   : String,
