@@ -5,15 +5,17 @@ exports.getTeams = function (req, res, next) {
   var str = build();
   res.status(200).send(str);
 };
-
-exports.saveTeams = function (teams, callback) {
-  Team.create(teams).then(callback)
+// split out so a new team could be created on the fly someday
+var saveTeams = function (teams, callback) {
+  console.log(teams);
+  Team.create(teams, callback);
 }
 
 exports.postTeams = function (req, res, next) {
-  saveTeams(req.body, function (err) {
-    if (err) res.status(500).send(err)
+  console.log('req.length ', req.length);
+  saveTeams(req.body, function (err, result) {
+    if (err) res.status(500).send(err);
     console.log(req.body.length, ' teams saved');
+    res.send(result);
   })
-  // res.send(req.body)
 };

@@ -25,7 +25,7 @@ module.exports = function(rankings) {
       name: getOtherName(chopped[chopped.length -1], rank.team.text),
       nickname: rank.team.text,
       league: league,
-      dead: chopped[chopped.length -2],
+      short: chopped[chopped.length -2],
       rank: Number(rank.rank),
       wins: rank.wins,
       losses: rank.losses,

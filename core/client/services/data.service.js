@@ -9,8 +9,14 @@ function dataService($q, $http) {
         return response;
       });
   }
-  this.teamsToMongo = function (league) {
-    return $http.get('/api/data/create-teams?league=' + league)
+  this.postTeams = function (teams) {
+    return $http.post('/api/teams', teams)
+      .then(function (response) {
+        return response;
+      })
+  }
+  this.getMatchups = function () {
+    return $http.get('/api/matchups')
       .then(function (response) {
         return response;
       })

@@ -9,16 +9,21 @@
   <div class="btn-group">
     <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'pr'">Rankings</label>
     <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'sched'">Schedule</label>
+    <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'teams'">Teams</label>
   </div>
   <span>&nbsp;league : {{league}}</span><br><br>
   <button type="button" class="btn btn-primary" ng-click="getKimoData(league, kReq)">
     Get from Kimono
   </button>
-  <button type="button" class="btn btn-default" ng-click="teamsToMongo(league)">
-    Post League Teams
+  <button type="button" class="btn btn-default" ng-click="postTeams(teams)">
+    Post Teams to Mongo
+  </button>
+  <button type="button" class="btn btn-default" ng-click="getMatchups()">
+    Get Matchups
   </button>
   <br>
   <br>
+  <pre>{{response}}</pre>
   <table class="table">
     <th ng-repeat="header in tHeaders">{{header}}</th>
     <tr ng-repeat="team in teams">

@@ -11,15 +11,19 @@ function adminController($scope, dataService) {
       });
   }
 
-  $scope.league = 'cfb';
+  $scope.league = 'nba';
   $scope.kReq = 'pr';
 
-  $scope.teamsToMongo = function(league) {
-    console.log('tTM fired');
-    dataService.teamsToMongo(league)
+  $scope.postTeams = function (teams) {
+    dataService.postTeams(teams)
       .then(function (response) {
         $scope.teams = response.data;
-        $scope.tHeaders = Object.keys($scope.teams[0]);
+      })
+  }
+  $scope.getMatchups = function () {
+    dataService.getTeams()
+      .then(function (response) {
+        $scope.response = response.data;
       })
   }
 
