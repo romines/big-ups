@@ -6,5 +6,5 @@ module.exports = function (app) {
     .get(Ctrl.getTeams);
 
   app.route('/api/teams')
-    .post(Ctrl.postTeam);
+    .post(Ctrl.postTeams);
 };

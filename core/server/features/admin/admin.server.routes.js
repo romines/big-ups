@@ -5,6 +5,6 @@ module.exports = function(app) {
   app.route('/api/data')
     .get(Ctrl.getFromKimo);
 
-  // app.route('/api/data/foo')
-  //   .get(Ctrl.getAndLog);
+  app.route('/api/data/create-teams')
+    .get(Ctrl.createTeams);
 };

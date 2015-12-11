@@ -9,8 +9,8 @@ function dataService($q, $http) {
         return response;
       });
   }
-  this.rankingsToMongo = function () {
-    return $http.get('/api/data?task=teams-from-pr')
+  this.teamsToMongo = function (league) {
+    return $http.get('/api/data/create-teams?league=' + league)
       .then(function (response) {
         return response;
       })

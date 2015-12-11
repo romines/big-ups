@@ -16,3 +16,11 @@ exports.getKimoData = function (callback, league, kReq) {
     callback(cleaned);
   });
 }
+
+exports.getTeamsRaw = function (callback, league) {
+  request(konfig.baseUrl + konfig.kID[league]['pr'] + konfig.apiKey,
+  function(err, response, body) {
+    if (err) console.log(err);
+    callback(body);
+  });
+}

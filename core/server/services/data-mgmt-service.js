@@ -56,15 +56,3 @@ module.exports = {
     return clean;
   }
 }
-
-
-  // let getKimoData = function (league, kReq) {
-  //
-  //   kimoService.getKimoData(league, kReq)
-  //     .then(function (response) {
-  //
-  //       let rows = handleResponse[kReq](response);
-  //       let props = Object.keys(rows[0]);
-  //
-  //     });
-  // }
