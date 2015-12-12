@@ -13,7 +13,7 @@ module.exports = {
     },
     nfl : {
       pr : '4tgfwjqy',
-      
+      sched : '8ku3ykpu'
     }
   }
 

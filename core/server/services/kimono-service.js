@@ -11,7 +11,8 @@ exports.getKimoData = function (callback, league, kReq) {
   request(konfig.baseUrl + konfig.kID[league][kReq] + konfig.apiKey,
   function(err, response, body) {
     // transform ugly response into something ready to be displayed on frontend
-    var cleaned = mgmt[kReq](body);
+    console.log(league, kReq);
+    var cleaned = mgmt[league][kReq](body);
     if (err) console.log(err);
     callback(cleaned);
   });

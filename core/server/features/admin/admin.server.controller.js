@@ -14,8 +14,8 @@ exports.getFromKimo = function(req, res, next) {
   // Build teams from Kimono response and send back to client
   if (kReq === 'teams') {
     kimoService.getTeamsRaw(function (data) {
-      data = JSON.parse(data);
-      var teams = buildTeam(data.results.rankings);
+      data = JSON.parse(data).results.rankings;
+      var teams = buildTeam[league](data);
       res.status(200).send(teams)
     }, league);
   // Build matchups from Kimono (+ teams from Mongo)

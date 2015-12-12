@@ -1,5 +1,6 @@
-module.exports = function(rankings) {
+var request = require('request');
 
+var base = function(rankings) {
   function getOtherName(urlString, name) {
     var other = urlString.replace('-', ' ')
       .toLowerCase()
@@ -35,5 +36,19 @@ module.exports = function(rankings) {
   }
 
   return results;
+
+}
+
+module.exports = {
+  // allows league/API specific overides
+
+  nba : function(rankings) {
+    return base(rankings);
+
+  },
+
+  nfl : function (rankings) {
+    return base(rankings);
+  }
 
 }
