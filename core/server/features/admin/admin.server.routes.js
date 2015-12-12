@@ -5,4 +5,6 @@ module.exports = function(app) {
   app.route('/api/data')
     .get(Ctrl.getFromKimo);
 
+  app.route('/api/methods')
+    .get(Ctrl.adminMethods);
 };

@@ -20,6 +20,8 @@ module.exports = function (sched, league, callback) {
       let away = i.away;
       let home = i.home;
       for (let j of teams) {
+        // match home, away team name strings to
+        // Team nickname property
         if (j.nickname === away) {
           matchup.away = j._id;
           bur += j.rank;

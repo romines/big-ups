@@ -32,3 +32,8 @@ exports.getFromKimo = function(req, res, next) {
     }, league, kReq);
   }
 }
+
+exports.adminMethods = function (req, res, next) {
+  
+  res.status(200).send('adminMethods fn')
+}
