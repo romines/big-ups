@@ -11,6 +11,7 @@ var MatchupSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Team'
   },
+  league: String,
   date: {
     type: Date
   },

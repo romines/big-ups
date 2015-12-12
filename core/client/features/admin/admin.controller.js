@@ -6,8 +6,13 @@ function adminController($scope, dataService) {
 
     dataService.getKimoData(league, kReq)
       .then(function (response) {
-        $scope.teams = response.data;
-        $scope.tHeaders = Object.keys($scope.teams[0]);
+        if (kReq === 'matchups') {
+          $scope.response = response.data;
+        } else {
+          $scope.teams = response.data;
+          $scope.tHeaders = Object.keys($scope.teams[0]);
+        }
+
       });
   }
 

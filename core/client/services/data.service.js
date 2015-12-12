@@ -16,7 +16,7 @@ function dataService($q, $http) {
       })
   }
   this.getMatchups = function () {
-    return $http.get('/api/matchups')
+    return $http.get('/api/k/matchups')
       .then(function (response) {
         return response;
       })

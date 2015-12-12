@@ -1,5 +1,6 @@
 var kimoService = require('../../services/kimono-service');
-var build = require('../../services/build-team.js');
+var buildTeam = require('../../services/build-team.js');
+var buildMatchups = require('../../services/build-matchups.js');
 var teamCtrl = require('../teams/team.server.controller.js')
 
 // Handles request to uri like '/api/data?league=nba&kimo=pr'
@@ -14,11 +15,18 @@ exports.getFromKimo = function(req, res, next) {
   if (kReq === 'teams') {
     kimoService.getTeamsRaw(function (data) {
       data = JSON.parse(data);
-      var teams = build(data.results.rankings);
+      var teams = buildTeam(data.results.rankings);
       res.status(200).send(teams)
     }, league);
+  // Build matchups from Kimono (+ teams from Mongo)
+  } else if (kReq === 'matchups'){
+    kimoService.getKimoData(function (sched) {
+      buildMatchups(sched, league, function (matchups) {
+        res.status(200).send(matchups);
+      });
+    }, league, 'sched');
   } else {
-    // Just power ranking or schedule data
+    // Just return power rankings or schedule data
     kimoService.getKimoData(function (data) {
       res.status(200).send(data);
     }, league, kReq);
