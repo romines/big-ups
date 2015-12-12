@@ -6,12 +6,12 @@ function adminController($scope, dataService) {
 
     dataService.getKimoData(league, kReq)
       .then(function (response) {
-        if (kReq === 'matchups') {
-          $scope.response = response.data;
-        } else {
+        // if (kReq === 'matchups') {
+        //   $scope.response = response.data;
+        // } else {
           $scope.teams = response.data;
           $scope.tHeaders = Object.keys($scope.teams[0]);
-        }
+        // }
 
       });
   }
@@ -28,7 +28,7 @@ function adminController($scope, dataService) {
   $scope.getMatchups = function () {
     dataService.getTeams()
       .then(function (response) {
-        $scope.response = response.data;
+        $scope.teams = response.data;
       })
   }
 

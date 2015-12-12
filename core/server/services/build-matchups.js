@@ -23,15 +23,15 @@ module.exports = function (sched, league, callback) {
         if (j.nickname === away) {
           matchup.away = j._id;
           bur += j.rank;
-          console.log(j.nickname, j.rank);
+          // console.log(j.nickname, j.rank);
         }
         if (j.nickname === home) {
           matchup.home = j._id;
           bur += j.rank;
-          console.log(j.nickname, j.rank);
+          // console.log(j.nickname, j.rank);
         }
       }
-      console.log(bur);
+      // console.log(bur);
       matchup.burScore = bur;
       matchups.push(matchup)
     }
