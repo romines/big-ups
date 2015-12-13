@@ -13,11 +13,16 @@ exports.getFromKimo = function(req, res, next) {
   var task = req.query.task;
   // Build teams from Kimono response and send back to client
   if (kReq === 'teams') {
-    kimoService.getTeamsRaw(function (data) {
-      data = JSON.parse(data).results.rankings;
-      var teams = buildTeam[league](data);
-      res.status(200).send(teams)
-    }, league);
+
+    kimoService.promiseTeamsRaw(league)
+      .then(function (data) {
+        var teams = buildTeam[league](data);
+        res.status(200).send(teams)
+      })
+      .catch(function (error) {
+        console.log('Error getting raw rankings data: ', error);
+      });
+
   // Build matchups from Kimono (+ teams from Mongo)
   } else if (kReq === 'matchups'){
     kimoService.getKimoData(function (sched) {
@@ -33,7 +38,14 @@ exports.getFromKimo = function(req, res, next) {
   }
 }
 
-exports.adminMethods = function (req, res, next) {
-  
-  res.status(200).send('adminMethods fn')
-}
+// exports.adminMethods = function (req, res, next) {
+//   console.log('request received');
+//   var q = Q.defer();
+//
+//   kimoService.getKimoData(function (data) {
+//
+//   })
+//
+//
+//   res.status(200).send('adminMethods fn')
+// }

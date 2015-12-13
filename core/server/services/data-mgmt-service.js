@@ -26,7 +26,25 @@ module.exports = {
     },
 
     sched: function(response) {
-      return base_sched(response);
+      console.log(JSON.parse(response));
+      var games = JSON.parse(response.results.collection1);
+      var clean = [];
+      var days = {
+        Thu : 4,
+        Sun : 7,
+        Mon : 8
+      };
+      for (let i of games) {
+        var dateArr = i.day-time.split(' ');
+        clean.push({
+          away: i.away2,
+          home: i.home2,
+          time: dateArr.shift().join(' '),
+          tv: i.tv,
+          date: moment().day(days[dateArr[0]])
+        })
+      }
+      return clean;
     }
   },
 
@@ -35,7 +53,7 @@ module.exports = {
 function base_pr(response) {
   response = JSON.parse(response)
     // console.log('response from inside data-mgmt: ', response);
-  var kAPI = response.name;
+  // var kAPI = response.name;
   var teams = response.results.rankings;
 
   var clean = [];
@@ -46,7 +64,7 @@ function base_pr(response) {
       wins: teams[i].wins,
       losses: teams[i].losses
     }
-    if (kAPI === 'cfb_pr') teamRank.fpi = teams[i].fpi;
+    // if (kAPI === 'cfb_pr') teamRank.fpi = teams[i].fpi;
 
     clean.push(teamRank);
   }

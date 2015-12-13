@@ -3,7 +3,6 @@ var Matchup = require('../features/matchups/matchup.server.model.js');
 var Team = require('../features/teams/team.server.model.js');
 
 module.exports = function (sched, league, callback) {
-  // console.log('BM says: ', league, sched);
 
   Team.find({league: league}, function (err, teams) {
     var matchups = []
