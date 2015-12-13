@@ -17,36 +17,23 @@ exports.getMatchups = function(req, res, next) {
 exports.getOneMatchup = function(req, res, next) {
   http.get
   Matchup.findById(req.params.id)
-    .exec(function(err, friend) {
+    .exec(function(err, matchup) {
       if (err) res.status(500).send(err);
-      else res.json(friend);
+      else res.json(matchup);
     });
 };
 
+var saveMatchups = function (matchups, callback) {
+  Matchup.create(matchups, callback)
+}
 
 exports.postMatchups = function(req, res, next) {
 
-  var matchup = new Matchup(req.body);
-  matchup.save(function(err) {
-
-    if (err) res.send(err);
-    else res.json(matchup);
+  saveMatchups(req.body, function (err, result) {
+    if (err) res.status(500).send(err);
+    res.send(result);
   });
 };
-
-var saveMatchups = function (matchups) {
-  async.each(matchups, function (game, callback) {
-    var matchup = new Matchup(game);
-
-    matchup.save(function (err) {
-      if (err) console.log(err);
-    });
-    callback();
-  }, function (error) {
-    if (error) console.log(error);
-    console.log(matchups.length, ' matchups saved');
-  });
-}
 
 exports.saveMatchups = saveMatchups;
 

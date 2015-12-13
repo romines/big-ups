@@ -1,7 +1,9 @@
 var kimoService = require('../../services/kimono-service');
 var buildTeam = require('../../services/build-team.js');
 var buildMatchups = require('../../services/build-matchups.js');
-var teamCtrl = require('../teams/team.server.controller.js')
+var teamCtrl = require('../teams/team.server.controller.js');
+var matchupCtrl = require('../matchups/matchup.server.controller.js');
+var moment = require('moment');
 
 // Handles request to uri like '/api/data?league=nba&kimo=pr'
 // Given two params, league and 'kimo' (full team data, power
@@ -38,14 +40,27 @@ exports.getFromKimo = function(req, res, next) {
   }
 }
 
-// exports.adminMethods = function (req, res, next) {
-//   console.log('request received');
-//   var q = Q.defer();
-//
-//   kimoService.getKimoData(function (data) {
-//
-//   })
-//
-//
-//   res.status(200).send('adminMethods fn')
-// }
+exports.adminMethods = function (req, res, next) {
+
+  matchupCtrl.saveMatchups([
+    {
+      league: nba,
+      date:	moment(2015-12-13),
+      tv:	"ESPN, CSCH, CSNE",
+      burScore: 13,
+      tags:	[],
+      away:	"566b7892d4f0413d110f8537",
+      home:	"566b7892d4f0413d110f8532"
+    },{
+      league: nba,
+      date:	moment(2015-12-13),
+      tv:	"CSMA, C+ D",
+      burScore: 42,
+      tags:	[],
+      home:	"566b7892d4f0413d110f8540",
+      away:	"566b7892d4f0413d110f8546"
+    }
+  ])
+
+  res.status(200).send('adminMethods fn fired')
+}

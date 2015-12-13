@@ -20,7 +20,7 @@ function adminController($scope, dataService) {
   $scope.kReq = 'pr';
 
   var postNewMatchups = function (matchups) {
-    dataService.postNewMatchups()
+    dataService.postNewMatchups(matchups)
       .then(function (response) {
         $scope.data = response.data;
       });

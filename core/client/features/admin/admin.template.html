@@ -12,11 +12,11 @@
     <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'teams'">Teams</label>
     <label class="btn btn-primary" ng-model="kReq" uib-btn-radio="'matchups'">Matchups</label>
   </div>
-  <span>&nbsp;league : {{league}}</span><br><br>
+  <span>&nbsp;league : {{league}}</span><span>&nbsp;&nbsp;resource : {{kReq}}</span><br><br>
   <button type="button" class="btn btn-primary" ng-click="getKimoData(league, kReq)">
     Get from Kimono
   </button>
-  <button type="button" class="btn btn-default" ng-click="postTeams(data, league)">
+  <button type="button" class="btn btn-default" ng-click="post(data, kReq)">
     Post to Mongo
   </button>
   <br>

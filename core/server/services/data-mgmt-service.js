@@ -27,9 +27,7 @@ module.exports = {
     },
 
     sched: function(response) {
-      // console.log(nflSched);
       response = nflSched;
-      // console.log(response);
       var games = response.results.collection1;
       var clean = [];
       var days = {
@@ -39,7 +37,6 @@ module.exports = {
       };
       for (let i of games) {
         var dateArr = i.dayTime.split(' ');
-        console.log(dateArr);
         clean.push({
           away: i.away2,
           home: i.home2,
@@ -93,7 +90,7 @@ function base_sched(response) {
       home: games[i].home,
       time: ((games[i].time.slice(-3) === 'EST') ? games[i].time : 'past'),
       tv: games[i].tv,
-      date: dateStr
+      date: moment(dateStr).format('YYYY-MM-DD')
     })
   }
   return clean;
