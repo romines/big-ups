@@ -7,6 +7,8 @@ var async = require('async');
 exports.getMatchups = function(req, res, next) {
   // temp();
   Matchup.find({})
+    .populate('home')
+    .populate('away')
     .exec(function(err, friends) {
       if (err) res.status(500).send(err);
       else res.json(friends);

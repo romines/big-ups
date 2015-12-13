@@ -2,27 +2,11 @@
 
 <h3>All Matchups</h3>
 
-Get all matchUps: <button ng-click="getNewMatchups()">go!</button>
+Get all matchUps: <button ng-click="getMatchups()">go!</button>
 
 <!-- <ul>
     <li ng-repeat="matchUp in matchUps">Home: {{ matchUp.home }}, Away {{ matchUp.away }}, date: {{matchUp.date}} (id: {{ matchUp._id }})</li>
 </ul> -->
 <div class="slate">
-  <matchup ng-repeat="matchUp in matchUps" matchup="matchUp"></matchup>
+  <matchup ng-repeat="matchUp in matchUps | orderBy:'burScore'" matchup="matchUp"></matchup>
 </div>
-
-<br>
-<br>
-
-<!-- Get one friend: <input placeholder="enter an id" type="text" ng-model="id"> <button ng-click="getMatchupById(id)">get friend!</button>
-
-<ul>
-    <li>{{ friend.name || friend }}</li>
-</ul> -->
-
-
-<h3>Add a matchup</h3>
-Home team: <input ng-model="home" type="text">
-Away team: <input ng-model="away" type="text">
-Date: <input ng-model="date" type="text">
-<button ng-click="postNewMatchup()">add!</button> {{ flash }}

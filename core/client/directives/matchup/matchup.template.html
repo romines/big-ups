@@ -1,10 +1,12 @@
 
 <div class="matchup">
   <div class="team away">
-    Away: {{ matchUp.away }}
+    Away: {{ matchUp.away.nickname }}
+    <img ng-src="shared/images/{{matchUp.away.imgPath}}" alt="">
   </div>
   <div class="team home">
-    Home: {{ matchUp.home }}
+    Home: {{ matchUp.home.nickname }}
+    <img ng-src="shared/images/{{matchUp.home.imgPath}}" alt="">
   </div>
 </div>
 
