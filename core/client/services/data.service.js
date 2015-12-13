@@ -15,8 +15,14 @@ function dataService($q, $http) {
         return response;
       })
   }
-  this.getMatchups = function () {
+  this.getNewMatchups = function () {
     return $http.get('/api/k/matchups')
+      .then(function (response) {
+        return response;
+      })
+  }
+  this.postNewMatchups = function (matchups) {
+    return $http.post('api/matchups', matchups)
       .then(function (response) {
         return response;
       })

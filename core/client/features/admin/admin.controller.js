@@ -9,8 +9,8 @@ function adminController($scope, dataService) {
         // if (kReq === 'matchups') {
         //   $scope.response = response.data;
         // } else {
-          $scope.teams = response.data;
-          $scope.tHeaders = Object.keys($scope.teams[0]);
+          $scope.data = response.data;
+          $scope.tHeaders = Object.keys($scope.data[0]);
         // }
 
       });
@@ -19,17 +19,34 @@ function adminController($scope, dataService) {
   $scope.league = 'nba';
   $scope.kReq = 'pr';
 
-  $scope.postTeams = function (teams) {
+  var postNewMatchups = function (matchups) {
+    dataService.postNewMatchups()
+      .then(function (response) {
+        $scope.data = response.data;
+      });
+  }
+  var postTeams = function (teams) {
     dataService.postTeams(teams)
       .then(function (response) {
-        $scope.teams = response.data;
-      })
+        $scope.data = response.data;
+      });
   }
-  $scope.getMatchups = function () {
+
+  $scope.post = function (data, resource) {
+    if (resource === 'matchups') {
+      postNewMatchups(data);
+    } else if (resource === 'teams') {
+      postTeams(data);
+    } else {
+      $scope.response = 'Sorry, you can only post teams or matchups'
+    }
+  }
+
+  $scope.getNewMatchups = function () {
     dataService.getTeams()
       .then(function (response) {
-        $scope.teams = response.data;
-      })
+        $scope.data = response.data;
+      });
   }
 
 }

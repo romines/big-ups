@@ -29,18 +29,4 @@ function matchupService($q, $http) {
       });
   };
 
-
-  this.postNewMatchup = function(friend) {
-
-    return $http.post('/api/matchups', friend)
-      .then(function(response) {
-
-        console.log(response);
-        return "friend added!";
-      }, function(error) {
-        console.log(error);
-        return error;
-      });
-  };
-
 }

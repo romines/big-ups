@@ -16,7 +16,7 @@
   <button type="button" class="btn btn-primary" ng-click="getKimoData(league, kReq)">
     Get from Kimono
   </button>
-  <button type="button" class="btn btn-default" ng-click="postTeams(teams)">
+  <button type="button" class="btn btn-default" ng-click="postTeams(data, league)">
     Post to Mongo
   </button>
   <br>
@@ -24,8 +24,8 @@
   <pre>{{response}}</pre>
   <table class="table">
     <th ng-repeat="header in tHeaders">{{header}}</th>
-    <tr ng-repeat="team in teams">
-      <td ng-repeat="(key, value) in team">{{value}}</td>
+    <tr ng-repeat="row in data">
+      <td ng-repeat="(key, value) in row">{{value}}</td>
     </tr>
   </table>
 

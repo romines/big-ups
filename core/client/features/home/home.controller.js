@@ -33,23 +33,21 @@ function homeController($scope, matchupService) {
   };
 
 
-  $scope.postNewMatchup = function() {
-
-    var newMatchup = {
-      home: $scope.home,
-      away: $scope.away,
-      date: $scope.date,
-      imgUrl: 'https://cdn2.iconfinder.com/data/icons/social-aquiocons/128/Aquicon-Github.png'
-    };
-    matchupService.postNewMatchup(newMatchup)
-      .then(function() {
-
-        $scope.getMatchups();
-      });
-    $scope.home = "";
-    $scope.away = "";
-    $scope.date = "";
-
-
-  };
+  // $scope.postNewMatchup = function() {
+  //
+  //   var newMatchup = {
+  //     home: $scope.home,
+  //     away: $scope.away,
+  //     date: $scope.date,
+  //     imgUrl: 'https://cdn2.iconfinder.com/data/icons/social-aquiocons/128/Aquicon-Github.png'
+  //   };
+  //   matchupService.postNewMatchup(newMatchup)
+  //     .then(function() {
+  //
+  //       $scope.getNewMatchups();
+  //     });
+  //   $scope.home = "";
+  //   $scope.away = "";
+  //   $scope.date = "";
+  // };
 }

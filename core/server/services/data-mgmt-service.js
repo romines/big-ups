@@ -3,7 +3,8 @@ const
   mongoose = require('mongoose'),
   moment = require('moment'),
   Matchup = require('../features/matchups/matchup.server.model'),
-  Team = require('../features/teams/team.server.model');
+  Team = require('../features/teams/team.server.model'),
+  nflSched = require('./temp.js');
 
 
 // module (object) that has cleanup methods for power ranking and
@@ -26,8 +27,10 @@ module.exports = {
     },
 
     sched: function(response) {
-      console.log(JSON.parse(response));
-      var games = JSON.parse(response.results.collection1);
+      // console.log(nflSched);
+      response = nflSched;
+      // console.log(response);
+      var games = response.results.collection1;
       var clean = [];
       var days = {
         Thu : 4,
@@ -35,13 +38,14 @@ module.exports = {
         Mon : 8
       };
       for (let i of games) {
-        var dateArr = i.day-time.split(' ');
+        var dateArr = i.dayTime.split(' ');
+        console.log(dateArr);
         clean.push({
           away: i.away2,
           home: i.home2,
-          time: dateArr.shift().join(' '),
+          time: dateArr.slice(1).join(' '),
           tv: i.tv,
-          date: moment().day(days[dateArr[0]])
+          date: moment().day(days[dateArr[0]]).format('YYYY-MM-DD')
         })
       }
       return clean;
