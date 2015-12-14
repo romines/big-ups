@@ -19,6 +19,7 @@ exports.getFromKimo = function(req, res, next) {
     kimoService.promiseTeamsRaw(league)
       .then(function (data) {
         var teams = buildTeam[league](data);
+        console.log(teams);
         res.status(200).send(teams)
       })
       .catch(function (error) {
@@ -41,7 +42,7 @@ exports.getFromKimo = function(req, res, next) {
 }
 
 exports.adminMethods = function (req, res, next) {
-
+  // Testing matchup save
   matchupCtrl.saveMatchups([
     {
       league: nba,
