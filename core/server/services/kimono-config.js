@@ -14,6 +14,10 @@ module.exports = {
     nfl : {
       pr : '4tgfwjqy',
       sched : '8ku3ykpu'
+    },
+    nhl : {
+      pr : '6nr1cmcm',
+      sched : '3w4ms632'
     }
   }
 

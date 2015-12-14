@@ -13,6 +13,7 @@ exports.getKimoData = function (callback, league, kReq) {
   function(err, response, body) {
     // transform ugly response into something ready to be displayed on frontend
     console.log(league, kReq);
+
     var cleaned = mgmt[league][kReq](body);
     if (err) console.log(err);
     callback(cleaned);

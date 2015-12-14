@@ -21,6 +21,27 @@ module.exports = {
       return base_sched(response);
     }
   },
+  nhl: {
+    pr: function (response) {
+      response = JSON.parse(response);
+      var teams = response.results.collection1;
+      console.log(teams);
+      var clean = []
+      for (let i of teams) {
+        var teamRank = {
+          name: i.name1,
+          rank: i.rank,
+          wins: i.record.split('-')[0],
+          losses: i.record.split('-')[1],
+        }
+        clean.push(teamRank);
+      }
+      return clean;
+    },
+    sched: function(response) {
+      return base_sched(response);
+    }
+  },
   nfl: {
     pr : function(response) {
       return base_pr(response);
