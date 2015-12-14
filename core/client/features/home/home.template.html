@@ -1,7 +1,13 @@
 <menu></menu>
 
-<h3 class="time-filter"><a ng-click="timeFilter = ''">Matchups by Week</a> | <a ng-click="timeFilter = 'day'">By Day</a></h3>
+<h3 class="time-filter"><a ng-click="updateFilter('')">All Matchups</a> | </h3>
+<span class='league-filters'>
+  <img src="shared/images/nhl.png" alt="" ng-click="updateFilter('nhl')">
+  <img src="shared/images/nfl.png" alt="" ng-click="updateFilter('nfl')">
+  <img src="shared/images/nba.png" ng-click="updateFilter('nba')" alt="">
+</span>
 
 <div class="slate">
-  <matchup ng-repeat="matchUp in matchUps | orderBy: 'burScore'" matchup="matchUp"></matchup>
+
+  <matchup ng-repeat="matchUp in matchUps | filterBy: ['league']:userFilter | orderBy: 'burScore'" matchup="matchUp"></matchup>
 </div>
