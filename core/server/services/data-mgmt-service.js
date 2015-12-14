@@ -74,7 +74,6 @@ module.exports = {
 
 function base_pr(response) {
   response = JSON.parse(response)
-    // console.log('response from inside data-mgmt: ', response);
   // var kAPI = response.name;
   var teams = response.results.rankings;
 
@@ -96,6 +95,7 @@ function base_pr(response) {
 }
 
 function base_sched(response) {
+  // console.log('response from inside data-mgmt: ', response);
   response = JSON.parse(response);
   var games = response.results.matchups;
   var clean = [];

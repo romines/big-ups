@@ -1,5 +1,6 @@
 "use strict";
 var request = require('request');
+var nhlJSON = require('./nhl-aux.js')
 
 var base = function(data) {
   var rankings = data.results.rankings
@@ -56,42 +57,37 @@ module.exports = {
 
   nhl: function(data) {
 
-
-
-    request("https://www.kimonolabs.com/api/2jklw5lu?apikey=Vj1A7atUmZq8lM7vE0pBvqE4Dnw40G9R",
-      function(err, response, body) {
-
-        var rankings = data.results.rankings;
-        var results = [];
-        for (let i of rankings) {
-          var team = {
-            name: i.name1 + ' ' + i.name2,
-            nickname: i.name2,
-            league: 'nhl',
-            short: i.name1.slice(0, 2) + i.name2.slice(0, 1),
-            rank: Number(i.rank),
-            wins: i.record.split('-')[0],
-            losses: i.record.split('-')[1],
-          }
-          results.push(team)
+      var rankings = data.results.rankings;
+      var results = [];
+      for (let i of rankings) {
+        var team = {
+          name: i.name1 + ' ' + i.name2,
+          nickname: i.name2,
+          league: 'nhl',
+          short: '', // i.name1.slice(0, 2) + i.name2.slice(0, 1)
+          rank: Number(i.rank),
+          wins: i.record.split('-')[0],
+          losses: i.record.split('-')[1],
         }
+        results.push(team)
+      }
 
 
-        var parsed = JSON.parse(body)
-        var teams = parsed.results.collection1;
-        for (let team of teams) {
-          let arr = team.property1.src.split('/');
-          let short = arr[arr.length-1];
-          for (let result of results) {
+      var parsed = nhlJSON;
+      var teams = parsed.results.collection1;
+      for (let team of teams) {
+        let arr = team.property1.src.split('/');
+        let short = arr[arr.length-1];
+        for (let result of results) {
 
-            // console.log(result.name.text, team.name, (result.name.text == team.name));
-            if (result.name == team.name.text) {
-              result.short = short;
-            }
+          // console.log(result.name.text, team.name, (result.name.text == team.name));
+          if (result.name == team.name.text) {
+            result.short = short;
           }
         }
-        return results;
-      });
+      }
+      return results;
+
 
   }
 

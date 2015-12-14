@@ -10,7 +10,7 @@ function homeController($scope, $filter, matchupService) {
 
   function getMatchups() {
     matchupService.getMatchups()
-      .then(function(data) {
+git       .then(function(data) {
 
         $scope.matchUps = data;
       });
