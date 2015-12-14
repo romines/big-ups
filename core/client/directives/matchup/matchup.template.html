@@ -1,12 +1,36 @@
 
 <div class="matchup">
-  <div class="team away">
-    Away: {{ matchUp.away.nickname }}
-    <img ng-src="shared/images/{{matchUp.away.imgPath}}" alt="">
+  <div class="vs">vs.</div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{matchUp.date.slice(0,10)}}
+      <img ng-src="shared/images/{{matchUp.league}}.png" class="league" alt="">
+    </div>
   </div>
-  <div class="team home">
-    Home: {{ matchUp.home.nickname }}
-    <img ng-src="shared/images/{{matchUp.home.imgPath}}" alt="">
+  <div class="row">
+    <div class="col-xs-6 team away">
+      <div class="name">
+        <h3><span class="grey">{{ matchUp.away.rank }} </span>{{ matchUp.away.name }}</h3>
+      </div>
+      <img ng-src="shared/images/{{matchUp.away.imgPath}}" class="logo" alt="">
+      <div class="record">
+        ({{ matchUp.away.wins }}-{{ matchUp.away.losses }})
+      </div>
+    </div>
+    <div class="col-xs-6 team home">
+      <div class="name">
+        <h3><span class="grey">{{ matchUp.home.rank }}</span> {{ matchUp.home.name }}</h3>
+      </div>
+      <img ng-src="shared/images/{{matchUp.home.imgPath}}" class="logo" alt="">
+      <div class="record">
+        ({{ matchUp.home.wins }}-{{ matchUp.home.losses }})
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      tags:
+    </div>
   </div>
 </div>
 

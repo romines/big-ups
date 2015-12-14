@@ -6730,11 +6730,13 @@ div.clear {
 div.main {
   margin: 1%;
 }
+h3.time-filter a {
+  color: #4f4f4f;
+}
 div.slate {
   width: 84%;
   margin: 1% auto;
   padding: 1%;
-  background-color: rgba(54, 54, 85, 0.77);
 }
 matchup {
   margin: 1% auto;
@@ -6743,12 +6745,27 @@ matchup {
   width: 94%;
   background-color: #eeeeee;
 }
-matchup div.team {
-  display: inline-block;
+matchup div.vs {
+  text-align: center;
+  position: relative;
+  top: 108px;
 }
-div.away {
-  float: left;
-}
-div.home {
+matchup img.league {
+  max-height: 43px;
+  width: auto;
   float: right;
+}
+matchup div.team {
+  text-align: center;
+}
+matchup div.team div.name {
+  text-align: center;
+  clear: both;
+}
+matchup div.team div.name span.grey {
+  color: #6a6a6a;
+  margin-right: 2px;
+}
+matchup div.team img.logo {
+  width: 20%;
 }

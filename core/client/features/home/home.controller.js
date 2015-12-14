@@ -1,10 +1,10 @@
 var app = angular.module('app');
 
 
-app.controller('homeController', ['$scope', 'matchupService', homeController]);
+app.controller('homeController', ['$scope', '$filter', 'matchupService', homeController]);
 
 
-function homeController($scope, matchupService) {
+function homeController($scope, $filter, matchupService) {
 
   getMatchups();
 
@@ -16,12 +16,20 @@ function homeController($scope, matchupService) {
       });
   }
 
-  $scope.getMatchups = function () {
+  // retrieves the min 'id' of a collection, used for the group ordering.
+  //you can use lodash instead. e.g: _.min(arr, 'id')
+  $scope.min = function(arr) {
+    return $filter('min')
+      ($filter('map')(arr, 'burScore'));
+  }
 
-    getMatchups();
 
-  };
-
+  // $scope.timeFilter = '';
+  //
+  // $scope.max = function(arr) {
+  //   return $filter('max')
+  //     ($filter('map')(arr, 'burScore'));
+  // }
 
   $scope.getMatchupById = function(id) {
 

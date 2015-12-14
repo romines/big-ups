@@ -1,12 +1,7 @@
 <menu></menu>
 
-<h3>All Matchups</h3>
+<h3 class="time-filter"><a ng-click="timeFilter = ''">Matchups by Week</a> | <a ng-click="timeFilter = 'day'">By Day</a></h3>
 
-Get all matchUps: <button ng-click="getMatchups()">go!</button>
-
-<!-- <ul>
-    <li ng-repeat="matchUp in matchUps">Home: {{ matchUp.home }}, Away {{ matchUp.away }}, date: {{matchUp.date}} (id: {{ matchUp._id }})</li>
-</ul> -->
 <div class="slate">
-  <matchup ng-repeat="matchUp in matchUps | orderBy:'burScore'" matchup="matchUp"></matchup>
+  <matchup ng-repeat="matchUp in matchUps | orderBy: 'burScore'" matchup="matchUp"></matchup>
 </div>
