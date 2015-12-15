@@ -6,29 +6,29 @@ var base = function(data) {
   var rankings = data.results.rankings
 
   function getOtherName(urlString, name) {
-    var other = urlString.replace('-', ' ')
-      .toLowerCase()
-      .replace(name, '')
+    return urlString.replace('-', ' ')
+      .replace(name.toLowerCase(), '')
       .split('-')
       .join(' ')
       .replace(/\w\S*/g,
         function(txt) {
           return txt.charAt(0)
-            .toUpperCase() + txt.substr(1)
-            .toLowerCase();
+            .toUpperCase() + txt.substr(1).toLowerCase();
         });
-    return other;
   }
 
   var results = [];
   for (var i = 0; i < rankings.length; i++) {
+
     var rank = rankings[i];
     var league = rank.url.slice(19, 22)
     var chopped = rank.team.href.split('/');
-
+    var nickname = rank.team.text
+    var otherName = getOtherName(chopped[chopped.length - 1], rank.team.text)
     var team = {
-      name: getOtherName(chopped[chopped.length - 1], rank.team.text),
-      nickname: rank.team.text,
+      name: nickname + ' ' + otherName,
+      nickname: nickname,
+      othername: otherName,
       league: league,
       short: chopped[chopped.length - 2],
       rank: Number(rank.rank),
@@ -36,6 +36,7 @@ var base = function(data) {
       losses: rank.losses,
       imgPath: chopped[3] + '/' + chopped[7] + '.png'
     }
+
     results.push(team);
   }
 
@@ -63,6 +64,7 @@ module.exports = {
         var team = {
           name: i.name1 + ' ' + i.name2,
           nickname: i.name2,
+          othername: i.name1,
           league: 'nhl',
           short: '', // i.name1.slice(0, 2) + i.name2.slice(0, 1)
           rank: Number(i.rank),
@@ -80,9 +82,9 @@ module.exports = {
         let short = arr[arr.length-1];
         for (let result of results) {
 
-          // console.log(result.name.text, team.name, (result.name.text == team.name));
           if (result.name == team.name.text) {
-            result.short = short;
+            result.short = short.replace('.png', '');
+            result.imgPath = result.league + '/' + short;
           }
         }
       }
