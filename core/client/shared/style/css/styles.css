@@ -6751,7 +6751,9 @@ img.league-filters {
   width: auto;
 }
 span.logo {
-  float: right;
+  height: 123px;
+  margin-top: -21px;
+  margin-right: 17%;
 }
 span.logo img {
   height: 85px;
@@ -6759,7 +6761,7 @@ span.logo img {
 div.slate {
   clear: both;
   width: 84%;
-  margin: 1% auto;
+  margin: 0 auto;
   padding: 1%;
 }
 matchup {
@@ -6772,6 +6774,7 @@ matchup {
 }
 matchup div.vs {
   position: absolute;
+  background-color: white;
   z-index: 10;
   left: 46%;
   margin-top: 12%;
