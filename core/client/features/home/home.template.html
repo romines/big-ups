@@ -1,21 +1,24 @@
 <menu></menu>
 
-<div class="site-title">
-  <h1>bigUps Sports</h1>
-  <h3>Only the biggest upcoming games</h3>
-</div>
+
 <div class="container">
-      <span class="logo">
-        <img class="logo" src="shared/images/logo.png" alt="">
-      </span>
-  <div class="filters clear">
+  <span class="logo">
+    <img class="logo" src="shared/images/logo.png" alt="">
+  </span>
+  <div class="filters">
     <div class="filter-label">Filter Results</div>
     <span class='filter-logos'>
       <img src="shared/images/nhl.png" class="league-filters" alt="" ng-click="updateFilter('nhl')">
       <img src="shared/images/nfl.png" class="league-filters" alt="" ng-click="updateFilter('nfl')">
       <img src="shared/images/nba.png" class="league-filters" ng-click="updateFilter('nba')" alt="">
     </span>
-    <a ng-click="updateFilter('')"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+    <a ng-click="updateFilter('')">
+      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="site-title">
+    <h1>bigUps sports</h1>
+    <h3>Only the biggest upcoming games</h3>
   </div>
   <div class="row best">
     <div class="col-sm-9">
@@ -26,7 +29,7 @@
 
     </div>
     <div class="col-sm-3 twitter">
-      <a class="twitter-timeline"  href="https://twitter.com/hashtag/sctop10" data-widget-id="676674757694099456">#sctop10 Tweets</a>
+      <a class="twitter-timeline" href="https://twitter.com/hashtag/sctop10" data-widget-id="676674757694099456">#sctop10 Tweets</a>
 
 
     </div>

@@ -6735,32 +6735,29 @@ div.row.jimmy {
   vertical-align: center;
 }
 div.site-title {
+  margin-top: -2%;
   float: left;
-  margin-left: 35%;
-  font-family: 'Merriweather', serif;
+  margin-left: 12%;
+  font-family: 'Nunito', sans-serif;
+}
+div.site-title h1 {
+  font-size: 8vh;
+  margin-left: -11%;
 }
 div.main {
   margin: 1%;
 }
-h3.time-filter {
-  float: left;
-}
-h3.time-filter a {
-  display: inline-block;
-  color: #4f4f4f;
-}
 div.filters {
   margin-top: 7%;
+  float: left;
 }
 div.filters div.filter-label {
-  float: left;
   padding-left: 1.8%;
   margin-bottom: .8%;
 }
 div.filters span.filter-logos {
-  clear: both;
   margin-left: 1%;
-  float: left;
+  margin-bottom: 1%;
 }
 div.filters img {
   margin-bottom: 1%;
@@ -6771,6 +6768,7 @@ div.filters span.glyphicon-remove-circle {
   margin-top: 3%;
   font-size: 20px;
   color: #464646;
+  float: left;
 }
 span.logo {
   float: right;
