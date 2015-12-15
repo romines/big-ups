@@ -4,16 +4,19 @@ function adminController($scope, dataService) {
   $scope.responseData = '';
   $scope.getKimoData = function (league, kReq) {
 
-    dataService.getKimoData(league, kReq)
-      .then(function (response) {
-        // if (kReq === 'matchups') {
-        //   $scope.response = response.data;
-        // } else {
+    if (kReq === 'pr' && league === 'nhl') {
+      console.log('nope');
+      return;
+    } else {
+      dataService.getKimoData(league, kReq)
+        .then(function (response) {
+
           $scope.data = response.data;
           $scope.tHeaders = Object.keys($scope.data[0]);
-        // }
 
-      });
+
+        });
+      }
   }
 
   $scope.league = 'nba';
