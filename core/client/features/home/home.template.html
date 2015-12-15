@@ -6,7 +6,9 @@
   <img src="shared/images/nfl.png" class="league-filters" alt="" ng-click="updateFilter('nfl')">
   <img src="shared/images/nba.png" class="league-filters" ng-click="updateFilter('nba')" alt="">
 </span>
-
+<span class="logo">
+  <img class="logo" src="shared/images/logo.png" alt="">
+</span>
 <div class="slate">
 
   <matchup ng-repeat="matchUp in matchUps | filterBy: ['league']:userFilter | orderBy: 'burScore'" matchup="matchUp"></matchup>
