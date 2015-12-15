@@ -21,6 +21,11 @@ div.row.jimmy {
 // content stuff
 //
 //
+div.site-title {
+  float: left;
+  margin-left: 35%;
+  font-family: 'Merriweather', serif;
+}
 div.main {
   margin: 1%;
 }
@@ -33,21 +38,34 @@ h3.time-filter a {
 }
 
 div.filters {
-  margin-top: 2%;
-  span {
+  margin-top: 7%;
+  div.filter-label {
+    float: left;
+    padding-left: 1.8%;
+    margin-bottom: .8%;
+    }
+
+  span.filter-logos {
+    clear: both;
     margin-left: 1%;
     float: left;
   }
   img {
+    margin-bottom: 1%;
     height: 65px;
     width: auto;
+  }
+  span.glyphicon-remove-circle {
+    margin-top: 3%;
+    font-size: 20px;
+    color: #464646;
   }
 }
 span.logo {
   float: right;
   margin-right: 3px;
   margin-top: -3%;
-  margin-bottom: 1%;
+  margin-bottom: -4%;
   img {
     height: 185px;
   }
@@ -113,5 +131,6 @@ matchup {
   }
   div.row:last-child {
     border-top: 1px solid #ccc;
+    height: 43px;
   }
 }
