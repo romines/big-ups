@@ -3,6 +3,7 @@
 @import "bootstrap";
 html, body {
   font-family: 'Fira Sans', sans-serif;
+  background-color: rgb(238, 238, 238);
 }
 //test
 div.clear {
@@ -12,33 +13,52 @@ div.clear {
 div.main {
   margin: 1%;
 }
-
+h3.time-filter {
+  float: left;
+}
 h3.time-filter a {
+  display: inline-block;
   color: rgb(79, 79, 79);
+}
+span.league-filters {
+  margin-left: 1%;
+  float: left;
+}
+
+img.league-filters {
+  height: 65px;
+  width: auto;
 }
 
 div.slate {
+  clear: both;
   width: 84%;
   margin: 1% auto;
   padding: 1%;
   // background-color: rgba(54, 54, 85, 0.77);
 }
 matchup {
+  border: 1px solid #ccc;
   margin: 1% auto;
   padding: 1%;
   display: block;
   width: 94%;
-  background-color: rgb(238, 238, 238);
+  background-color: white;
+  border-radius: 2px;
 
   div.vs {
     text-align: center;
-    position: relative;
-    top: 108px;
+    position: absolute;
+    right: 50%;
+    top: 30%;
   }
-  img.league {
-    max-height: 43px;
-    width: auto;
-    float: right;
+  div.top {
+    border-bottom: 1px solid #ccc;
+    img.league {
+      max-height: 43px;
+      width: auto;
+      float: right;
+    }
   }
   div.team {
     text-align: center;
@@ -46,12 +66,21 @@ matchup {
       text-align: center;
       clear: both;
       span.grey {
-        color: rgb(106, 106, 106);
+        color: #d8d8d9;
         margin-right: 2px;
       }
     }
-    img.logo {
-      width: 20%;
+    div.shield {
+      background:url('../../images/shield.png') center center no-repeat;
+      background-size: contain;
+      background-position: 50% 50%;
+      padding: 5.5%;
+      img.logo {
+        width: 20%;
+      }
+      div.record {
+        margin-top: 1%;
+      }
     }
 
   }

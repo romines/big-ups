@@ -6723,6 +6723,7 @@ button.close {
 html,
 body {
   font-family: 'Fira Sans', sans-serif;
+  background-color: #eeeeee;
 }
 div.clear {
   clear: both;
@@ -6730,27 +6731,46 @@ div.clear {
 div.main {
   margin: 1%;
 }
+h3.time-filter {
+  float: left;
+}
 h3.time-filter a {
+  display: inline-block;
   color: #4f4f4f;
 }
+span.league-filters {
+  margin-left: 1%;
+  float: left;
+}
+img.league-filters {
+  height: 65px;
+  width: auto;
+}
 div.slate {
+  clear: both;
   width: 84%;
   margin: 1% auto;
   padding: 1%;
 }
 matchup {
+  border: 1px solid #ccc;
   margin: 1% auto;
   padding: 1%;
   display: block;
   width: 94%;
-  background-color: #eeeeee;
+  background-color: white;
+  border-radius: 2px;
 }
 matchup div.vs {
   text-align: center;
-  position: relative;
-  top: 108px;
+  position: absolute;
+  right: 50%;
+  top: 30%;
 }
-matchup img.league {
+matchup div.top {
+  border-bottom: 1px solid #ccc;
+}
+matchup div.top img.league {
   max-height: 43px;
   width: auto;
   float: right;
@@ -6763,9 +6783,18 @@ matchup div.team div.name {
   clear: both;
 }
 matchup div.team div.name span.grey {
-  color: #6a6a6a;
+  color: #d8d8d9;
   margin-right: 2px;
 }
-matchup div.team img.logo {
+matchup div.team div.shield {
+  background: url('../../images/shield.png') center center no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+  padding: 5.5%;
+}
+matchup div.team div.shield img.logo {
   width: 20%;
+}
+matchup div.team div.shield div.record {
+  margin-top: 1%;
 }
