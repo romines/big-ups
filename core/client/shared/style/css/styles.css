@@ -6731,6 +6731,8 @@ div.clear {
 div.row.jimmy {
   margin-left: 0;
   margin-right: 0;
+  height: 48px;
+  vertical-align: center;
 }
 div.main {
   margin: 1%;
@@ -6820,4 +6822,7 @@ matchup div.team div.shield img.logo {
 }
 matchup div.team div.shield div.record {
   margin-top: 1%;
+}
+matchup div.row:last-child {
+  border-top: 1px solid #ccc;
 }
