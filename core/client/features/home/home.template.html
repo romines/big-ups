@@ -10,15 +10,13 @@
     <h3>Only the biggest upcoming games</h3>
   </div>
   <div class="filters">
-    <div class="filter-label">Filter Matchups</div>
+    <div class="filter-label">Filter Matchups | <span ng-click="updateFilter('')" class="clear-filters clicky">clear</span></div>
     <span class='filter-logos'>
-      <img src="shared/images/nhl.png" class="league-filters" alt="" ng-click="updateFilter('nhl')">
-      <img src="shared/images/nfl.png" class="league-filters" alt="" ng-click="updateFilter('nfl')">
-      <img src="shared/images/nba.png" class="league-filters" ng-click="updateFilter('nba')" alt="">
+      <img src="shared/images/nhl.png" class="league-filters clicky" alt="" ng-click="updateFilter('nhl')">
+      <img src="shared/images/nfl.png" class="league-filters clicky" alt="" ng-click="updateFilter('nfl')">
+      <img src="shared/images/nba.png" class="league-filters clicky" ng-click="updateFilter('nba')" alt="">
+
     </span>
-    <a ng-click="updateFilter('')">
-      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-    </a>
   </div>
   <div class="row best">
     <div class="col-sm-9">

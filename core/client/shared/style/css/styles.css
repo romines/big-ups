@@ -6728,6 +6728,10 @@ body {
 div.clear {
   clear: both;
 }
+.clicky {
+  cursor: pointer;
+  cursor: hand;
+}
 div.row.jimmy {
   margin-left: 0;
   margin-right: 0;
@@ -6758,16 +6762,10 @@ div.filters span.filter-logos {
   margin-left: 1%;
   margin-bottom: 1%;
 }
-div.filters img {
+div.filters span.filter-logos img {
   margin-bottom: 1%;
-  height: 65px;
+  height: 55px;
   width: auto;
-}
-div.filters span.glyphicon-remove-circle {
-  margin-top: 3%;
-  font-size: 20px;
-  color: #464646;
-  float: left;
 }
 span.logo {
   float: right;
