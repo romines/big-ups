@@ -48,22 +48,25 @@ module.exports = {
     },
 
     sched: function(response) {
-      response = nflSched;
+      // response = nflSched;
+      response = JSON.parse(response);
       var games = response.results.collection1;
       var clean = [];
       var days = {
         Thu : 4,
+        Sat : 6,
         Sun : 7,
         Mon : 8
       };
       for (let i of games) {
         var dateArr = i.dayTime.split(' ');
+        console.log(dateArr);
         clean.push({
           away: i.away2,
           home: i.home2,
           time: dateArr.slice(1).join(' '),
           tv: i.tv,
-          date: moment().day(days[dateArr[0]]).format('YYYY-MM-DD')
+          date: moment().day(days[dateArr[0]]).format('dddd, MMMM Do')
         })
       }
       return clean;

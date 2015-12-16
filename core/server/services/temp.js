@@ -1,4 +1,4 @@
-module.exports = {
+ module.exports = {
   "name": "nfl_sched_fx",
   "count": 15,
   "frequency": "Manual Crawl",
