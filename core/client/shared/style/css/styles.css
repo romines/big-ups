@@ -6823,6 +6823,7 @@ matchup div.top {
 }
 matchup div.top img.ntwk {
   max-width: 38px;
+  max-height: 26px;
   float: left;
 }
 matchup div.team {
