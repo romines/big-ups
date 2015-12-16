@@ -53,6 +53,22 @@ module.exports = function (sched, league, callback) {
         }
 
       }
+      if (!foundAway  && away.charAt(2) === ' ') {
+        for (let k of mongTeams) {
+          if (away.slice(3) === k.nickname || away.slice(3) === k.othername) {
+            foundAway = true;
+            matchup.away = k._id;
+          }
+        }
+      }
+      if (!foundHome  && home.charAt(2) === ' ') {
+        for (let l of mongTeams) {
+          if (home.slice(3) === l.nickname || home.slice(3) === l.othername) {
+            foundHome = true;
+            matchup.home = l._id;
+          }
+        }
+      }
       matchup.burScore = bur;
       matchups.push(matchup)
     }

@@ -36,7 +36,7 @@
     <div class="col-xs-12">
       tags:
       <img ng-click="blah()" ng-src="shared/images/tags/rivalry{{toggleRiv ? '_on' : ''}}.png" class="tags" alt="">
-      <img ng-src="shared/images/tags/playoffs{{togglePlayoffs ? '_on' : ''}}.png" class="tags" alt="">
+      <img ng-click="!matchUp.tags.playoffImplications" ng-src="shared/images/tags/playoffs{{matchUp.tags.playoffImplications ? '_on' : ''}}.png" class="tags" alt="">
       <img ng-src="shared/images/tags/favorite{{toggleFav ? '_on' : ''}}.png" class="tags" alt="">
       <img ng-src="shared/images/{{matchUp.league}}.png" class="league" alt="">
     </div>

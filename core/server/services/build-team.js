@@ -5,16 +5,25 @@ var nhlJSON = require('./nhl-aux.js')
 var base = function(data) {
   var rankings = data.results.rankings
 
-  function getOtherName(urlString, name) {
-    return urlString.replace('-', ' ')
-      .replace(name.toLowerCase(), '')
-      .split('-')
-      .join(' ')
+  function getName(urlString) {
+    return urlString.replace(/-/g, ' ')
       .replace(/\w\S*/g,
         function(txt) {
           return txt.charAt(0)
             .toUpperCase() + txt.substr(1).toLowerCase();
         });
+  }
+
+  function getOtherName(urlString, nickname) {
+    var soFar = urlString.replace(/-/g, ' ')
+      .replace(nickname.toLowerCase(), '')
+      .trim()
+      .replace(/\w\S*/g,
+        function(txt) {
+          return txt.charAt(0)
+            .toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    return soFar;
   }
 
   var results = [];
@@ -23,10 +32,11 @@ var base = function(data) {
     var rank = rankings[i];
     var league = rank.url.slice(19, 22)
     var chopped = rank.team.href.split('/');
+    var urlString = chopped[chopped.length - 1];
     var nickname = rank.team.text
-    var otherName = getOtherName(chopped[chopped.length - 1], rank.team.text)
+    var otherName = getOtherName(urlString, nickname)
     var team = {
-      name: nickname + ' ' + otherName,
+      name: getName(urlString),
       nickname: nickname,
       othername: otherName,
       league: league,

@@ -18,7 +18,20 @@ var MatchupSchema = new Schema({
   burScore: {
     type: Number
   },
-  tags: [String]
+  tags: {
+    rivalry : {
+      type : Boolean,
+      default : false
+    },
+    playoffImplications : {
+      type : Boolean,
+      default : false
+    },
+    favorite : {
+      type : Boolean,
+      default : false
+    }
+  }
 });
 
 
