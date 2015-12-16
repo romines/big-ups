@@ -6805,6 +6805,25 @@ matchup div.top {
   border-bottom: 1px solid #ccc;
   height: 43px;
   line-height: 43px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+matchup div.top img.ntwk {
+  max-width: 38px;
+  float: left;
 }
 matchup div.team {
   text-align: center;
@@ -6821,7 +6840,7 @@ matchup div.team div.name h3 {
   margin-top: 10px;
 }
 matchup div.team div.name span.grey {
-  color: #d8d8d9;
+  color: #88888C;
   margin-right: 2px;
 }
 matchup div.team div.shield {

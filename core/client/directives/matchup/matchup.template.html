@@ -3,8 +3,10 @@
   <div class="vs">vs.</div>
   <div class="row jimmy">
   <div class="col-xs-12 top">
-    {{matchUp.date}} | {{matchUp.tv}} | {{matchUp.burScore}}
-
+    <img ng-src="shared/images/ntwks/{{matchUp.tv}}.png" class="ntwk" alt="">
+    <span class="date">
+      {{matchUp.date.slice(0,10)}}
+    </span>
   </div>
   </div>
   <div class="row">
