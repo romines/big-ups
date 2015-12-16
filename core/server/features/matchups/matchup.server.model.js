@@ -18,6 +18,25 @@ var MatchupSchema = new Schema({
   burScore: {
     type: Number
   },
+  tv: {
+    type: String,
+    enum: [
+      'espn',
+      'espn2',
+      'nbc',
+      'nbcs',
+      'nbatv',
+      'abc',
+      'fox',
+      'cbs',
+      'foxsports',
+      'fs1',
+      'tnt',
+      'tbs',
+      'root'
+    ],
+    default : ' '
+  },
   tags: {
     rivalry : {
       type : Boolean,

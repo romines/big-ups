@@ -2,6 +2,22 @@
 var Matchup = require('../features/matchups/matchup.server.model.js');
 var Team = require('../features/teams/team.server.model.js');
 
+var ntwks = [
+  'espn',
+  'espn2',
+  'nbc',
+  'nbcs',
+  'nbatv',
+  'abc',
+  'fox',
+  'cbs',
+  'foxsports',
+  'fs1',
+  'tnt',
+  'tbs',
+  'root'
+];
+
 module.exports = function (sched, league, callback) {
 
   Team.find({league: league}, function (err, mongTeams) {
@@ -11,7 +27,7 @@ module.exports = function (sched, league, callback) {
       let matchup = {
         league : league,
         date : i.date,
-        tv : i.tv,
+        tv : getTV(i.tv, ntwks),
         burScore : 100,
         tags : []
       }
@@ -58,6 +74,7 @@ module.exports = function (sched, league, callback) {
           if (away.slice(3) === k.nickname || away.slice(3) === k.othername) {
             foundAway = true;
             matchup.away = k._id;
+            bur += k.rank;
           }
         }
       }
@@ -66,6 +83,7 @@ module.exports = function (sched, league, callback) {
           if (home.slice(3) === l.nickname || home.slice(3) === l.othername) {
             foundHome = true;
             matchup.home = l._id;
+            bur += l.rank;
           }
         }
       }
@@ -75,3 +93,22 @@ module.exports = function (sched, league, callback) {
     callback(matchups)
   });
 };
+
+function getTV(str, ntwks) {
+  var tmp = str.toLowerCase()
+              .replace(' ','');
+
+  for (var i=0; i<ntwks.length; i++) {
+    if (tmp.indexOf(ntwks[i]) > -1) {
+      if (ntwks[i] === 'nbc') {
+        if (tmp.indexOf('nbcs') > -1) {
+          return 'nbcs'
+        }
+      } else if (tmp.indexOf('espn2') > -1) {
+        return 'espn2'
+      }
+      return ntwks[i];
+    }
+  }
+  return 'regional';
+}
