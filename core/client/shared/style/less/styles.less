@@ -22,9 +22,8 @@ div.row.jimmy {
 //
 //
 div.site-title {
-  margin-top: -2%;
   float: left;
-  margin-left: 12%;
+  margin-left: 5%;
   font-family: 'Nunito', sans-serif;
   h1 {
     font-size: 8vh;
@@ -37,7 +36,7 @@ div.main {
 
 div.filters {
   margin-top: 7%;
-  float: left;
+  float: right;
   // clear: both;
   div.filter-label {
     // float: left;
@@ -92,7 +91,7 @@ matchup {
     position: absolute;
     background-color: white;
     z-index: 10;
-    left: 45%;
+    left: 46.4%;
     padding-bottom: 1%;
     margin-top: 12%;
     font-size: 5.6vh;
@@ -100,20 +99,22 @@ matchup {
   }
   div.top {
     border-bottom: 1px solid #ccc;
-    img.league {
-      max-height: 43px;
-      width: auto;
-      float: right;
-    }
+    height: 43px;
+    line-height: 43px;
+
   }
   div.team {
     text-align: center;
+    padding-bottom: 10px;
     &:first-child {
       border-right: 1px solid #ccc;
     }
     div.name {
       text-align: center;
       clear: both;
+      h3 {
+        margin-top: 10px;
+      }
       span.grey {
         color: #d8d8d9;
         margin-right: 2px;
@@ -135,5 +136,16 @@ matchup {
   div.row:last-child {
     border-top: 1px solid #ccc;
     height: 43px;
+    line-height: 43px;
+
+    img.tags {
+      max-height: 28px;
+      margin: 0 2%;
+    }
+    img.league {
+      max-height: 38px;
+      width: auto;
+      float: right;
+    }
   }
 }

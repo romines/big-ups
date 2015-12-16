@@ -6735,9 +6735,8 @@ div.row.jimmy {
   vertical-align: center;
 }
 div.site-title {
-  margin-top: -2%;
   float: left;
-  margin-left: 12%;
+  margin-left: 5%;
   font-family: 'Nunito', sans-serif;
 }
 div.site-title h1 {
@@ -6749,7 +6748,7 @@ div.main {
 }
 div.filters {
   margin-top: 7%;
-  float: left;
+  float: right;
 }
 div.filters div.filter-label {
   padding-left: 1.8%;
@@ -6798,7 +6797,7 @@ matchup div.vs {
   position: absolute;
   background-color: white;
   z-index: 10;
-  left: 45%;
+  left: 46.4%;
   padding-bottom: 1%;
   margin-top: 12%;
   font-size: 5.6vh;
@@ -6806,14 +6805,12 @@ matchup div.vs {
 }
 matchup div.top {
   border-bottom: 1px solid #ccc;
-}
-matchup div.top img.league {
-  max-height: 43px;
-  width: auto;
-  float: right;
+  height: 43px;
+  line-height: 43px;
 }
 matchup div.team {
   text-align: center;
+  padding-bottom: 10px;
 }
 matchup div.team:first-child {
   border-right: 1px solid #ccc;
@@ -6821,6 +6818,9 @@ matchup div.team:first-child {
 matchup div.team div.name {
   text-align: center;
   clear: both;
+}
+matchup div.team div.name h3 {
+  margin-top: 10px;
 }
 matchup div.team div.name span.grey {
   color: #d8d8d9;
@@ -6841,4 +6841,14 @@ matchup div.team div.shield div.record {
 matchup div.row:last-child {
   border-top: 1px solid #ccc;
   height: 43px;
+  line-height: 43px;
+}
+matchup div.row:last-child img.tags {
+  max-height: 28px;
+  margin: 0 2%;
+}
+matchup div.row:last-child img.league {
+  max-height: 38px;
+  width: auto;
+  float: right;
 }

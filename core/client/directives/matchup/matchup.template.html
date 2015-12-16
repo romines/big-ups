@@ -3,8 +3,8 @@
   <div class="vs">vs.</div>
   <div class="row jimmy">
   <div class="col-xs-12 top">
-    {{matchUp.date.slice(0,10)}}
-    <img ng-src="shared/images/{{matchUp.league}}.png" class="league" alt="">
+    {{moment(matchUp.date).format('MM-DD-YY')}}
+
   </div>
   </div>
   <div class="row">
@@ -35,6 +35,10 @@
   <div class="row jimmy">
     <div class="col-xs-12">
       tags:
+      <img ng-click="blah()" ng-src="shared/images/tags/rivalry{{toggleRiv ? '_on' : ''}}.png" class="tags" alt="">
+      <img ng-src="shared/images/tags/playoffs{{togglePlayoffs ? '_on' : ''}}.png" class="tags" alt="">
+      <img ng-src="shared/images/tags/favorite{{toggleFav ? '_on' : ''}}.png" class="tags" alt="">
+      <img ng-src="shared/images/{{matchUp.league}}.png" class="league" alt="">
     </div>
   </div>
 </div>
