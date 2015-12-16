@@ -28,6 +28,7 @@ module.exports = function (sched, league, callback) {
         league : league,
         date : i.date,
         tv : getTV(i.tv, ntwks),
+        time : i.time,
         burScore : 100,
         tags : []
       }

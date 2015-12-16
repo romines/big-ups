@@ -13,7 +13,10 @@ var MatchupSchema = new Schema({
   },
   league: String,
   date: {
-    type: Date
+    type: String
+  },
+  time: {
+    String
   },
   burScore: {
     type: Number
@@ -33,7 +36,8 @@ var MatchupSchema = new Schema({
       'fs1',
       'tnt',
       'tbs',
-      'root'
+      'root',
+      'regional'
     ],
     default : ' '
   },

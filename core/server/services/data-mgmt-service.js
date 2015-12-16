@@ -66,7 +66,7 @@ module.exports = {
           home: i.home2,
           time: dateArr.slice(1).join(' '),
           tv: i.tv,
-          date: moment().day(days[dateArr[0]]).format('dddd, MMMM Do')
+          date: moment().day(days[dateArr[0]]).format('dddd, MMM Do')
         })
       }
       return clean;
@@ -114,7 +114,7 @@ function base_sched(response) {
       home: games[i].home,
       time: ((games[i].time.slice(-3) === 'EST') ? games[i].time : 'past'),
       tv: games[i].tv,
-      date: moment(dateStr).format('YYYY-MM-DD')
+      date: moment(dateStr).format('dddd, MMM Do')
     })
   }
   return clean;

@@ -3,9 +3,11 @@
   <div class="vs">vs.</div>
   <div class="row jimmy">
   <div class="col-xs-12 top">
-    <img ng-src="shared/images/ntwks/{{matchUp.tv}}.png" class="ntwk" alt="">
+    <!-- <span ng-if="matchUp.tv !=='regional'">
+    </span> -->
+      <img ng-src="shared/images/ntwks/{{matchUp.tv !=='regional' ? matchUp.tv : trans}}.png" class="ntwk" alt="">
     <span class="date">
-      {{matchUp.date.slice(0,10)}}
+      {{matchUp.date}} {{matchUp.time}}
     </span>
   </div>
   </div>
